@@ -96,7 +96,7 @@ function addMaps(){
     for(i in selected_maps.maps){
 
         grids.innerHTML += `
-            <div class="grid-item" data-key="${parseInt(i)+1}" onclick="">
+            <div class="grid-item" data-key="${parseInt(i)+1}" onclick="toggleGray(this)">
                 <h1>${selected_maps.maps[i].name}</h1>
                 <img src="${selected_maps.maps[i].path}" alt="${selected_maps.maps[i].name}">
             </div>
