@@ -84,8 +84,44 @@ const selected_maps = {
     ]
 };
 
+let selectedCount = 0;
+
 function toggleGray(element) {
+    if (element.classList.contains("green")) {
+        element.classList.toggle("green");
+        selectedCount--;
+        removeNumber(element);
+    }
     element.classList.toggle("gray");
+}
+
+function toggleGreen(element) {
+    if (element.classList.contains("gray")) {
+        element.classList.toggle("gray");
+    }
+    element.classList.toggle("green");
+
+    if (element.classList.contains("green")) {
+        selectedCount++;
+        addNumber(element, selectedCount);
+    } else {
+        selectedCount--;
+        removeNumber(element);
+    }
+}
+
+function addNumber(element, number) {
+    const numberElement = document.createElement('div');
+    numberElement.classList.add('number');
+    numberElement.textContent = number;
+    element.appendChild(numberElement);
+}
+
+function removeNumber(element) {
+    const numberElement = element.querySelector('.number');
+    if (numberElement) {
+        element.removeChild(numberElement);
+    }
 }
 
 function addMaps(){
@@ -96,7 +132,7 @@ function addMaps(){
     for(i in selected_maps.maps){
 
         grids.innerHTML += `
-            <div class="grid-item" data-key="${parseInt(i)+1}" onclick="toggleGray(this)">
+            <div class="grid-item" data-key="${parseInt(i)+1}" onclick="toggleGreen(this)">
                 <h1>${selected_maps.maps[i].name}</h1>
                 <img src="${selected_maps.maps[i].path}" alt="${selected_maps.maps[i].name}">
             </div>

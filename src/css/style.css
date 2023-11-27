@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ZUUME ROUGH BOLD';
-    src: url('../fonts/fontspring-demo-zuumerough-bold.otf') format('opentype');
+    src: url('../fonts/ZuumeRough-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -60,7 +60,7 @@ body {
 .grid-item {
     display: flex;
     flex-direction: row;
-    width: 420px;
+    width: 500px;
     height: auto;
     position: relative;
     overflow: hidden;
@@ -81,7 +81,7 @@ body {
 }
 
 .grid-item img {
-    width: 100%;
+    width: 400px;
     height: 100%;
     transition: filter 0.5s ease-in-out;
     background-color: #fff;
@@ -91,4 +91,18 @@ body {
 
 .grid-item.gray img {
     filter: brightness(20%);
+}
+
+.grid-item.green img {
+    border: 3px solid #00ff009a; /* Green border color */
+}
+
+.number {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    color: #00ff009a; /* Green color for the number */
+    font-size: 72px;
+    font-weight: bold;
 }
