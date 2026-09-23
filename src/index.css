@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* MapPicker ships dark-only — see design spec §3.3. */
+:root,
+.dark {
+  --background: oklch(0.16 0.014 260); /* #14161c */
+  --foreground: oklch(0.96 0.004 260); /* #f2f3f5 */
+
+  --card: oklch(0.2 0.016 260); /* #1b1e26 */
+  --card-foreground: oklch(0.96 0.004 260);
+
+  --popover: oklch(0.19 0.016 260); /* #191c23 */
+  --popover-foreground: oklch(0.96 0.004 260);
+
+  --primary: oklch(0.74 0.16 175); /* #21e6c1 teal-cyan accent */
+  --primary-foreground: oklch(0.14 0.02 175);
+
+  --secondary: oklch(0.28 0.02 260); /* #2a2e38 */
+  --secondary-foreground: oklch(0.92 0.006 260);
+
+  --muted: oklch(0.24 0.016 260); /* #22252d */
+  --muted-foreground: oklch(0.66 0.01 260); /* #9a9fab */
+
+  --accent: oklch(0.28 0.02 260);
+  --accent-foreground: oklch(0.96 0.004 260);
+
+  --destructive: oklch(0.62 0.21 25); /* #e5484d-ish red */
+  --destructive-foreground: oklch(0.98 0.004 25);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.74 0.16 175);
+
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem; /* 4px — badges, chips, inputs */
+  --radius-md: 0.375rem; /* 6px — buttons, checkboxes */
+  --radius-lg: 0.5rem; /* 8px — cards, dialogs */
+  --radius-xl: 0.75rem; /* 12px — sheet/dialog outer container */
+
+  /* --- Custom MapPicker semantic tokens --- */
+  --team-a: oklch(0.72 0.17 250); /* #4d8dff cobalt blue */
+  --team-a-foreground: oklch(0.15 0.03 250);
+  --team-b: oklch(0.75 0.18 55); /* #ff9a3d amber-orange */
+  --team-b-foreground: oklch(0.16 0.03 55);
+
+  --pick: oklch(0.74 0.16 175); /* = primary, teal-cyan */
+  --pick-foreground: oklch(0.14 0.02 175);
+  --ban: oklch(0.62 0.21 25); /* = destructive, red */
+  --ban-foreground: oklch(0.98 0.004 25);
+  --decider: oklch(0.8 0.17 95); /* #f2c94c gold/yellow */
+  --decider-foreground: oklch(0.16 0.03 95);
+
+  --available-border: oklch(1 0 0 / 12%);
+
+  /* Shadows */
+  --shadow-card: 0 1px 2px oklch(0 0 0 / 40%);
+  --shadow-card-active: 0 0 0 1px var(--ring), 0 0 24px oklch(0.74 0.16 175 / 25%);
+  --shadow-panel: 0 8px 40px oklch(0 0 0 / 50%);
+
+  /* Motion */
+  --motion-fast: 120ms;
+  --motion-base: 180ms;
+  --motion-slow: 240ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.4, 0, 1, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-team-a: var(--team-a);
+  --color-team-a-foreground: var(--team-a-foreground);
+  --color-team-b: var(--team-b);
+  --color-team-b-foreground: var(--team-b-foreground);
+  --color-pick: var(--pick);
+  --color-pick-foreground: var(--pick-foreground);
+  --color-ban: var(--ban);
+  --color-ban-foreground: var(--ban-foreground);
+  --color-decider: var(--decider);
+  --color-decider-foreground: var(--decider-foreground);
+  --color-available-border: var(--available-border);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --font-display: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --text-display-xl: 2.75rem;
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--font-weight: 700;
+  --text-display-lg: 2rem;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--font-weight: 700;
+  --text-display-md: 1.5rem;
+  --text-display-md--line-height: 1.15;
+  --text-display-md--font-weight: 600;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.5;
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.4;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.35;
+  --text-mono: 0.875rem;
+  --text-mono--line-height: 1.2;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-card-active: var(--shadow-card-active);
+  --shadow-panel: var(--shadow-panel);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv11";
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* CSS-only app background — layered radial gradients + inline SVG noise. No image assets. */
+  .app-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-color: var(--background);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.74 0.16 175 / 8%), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.75 0.18 55 / 5%), transparent);
+  }
+
+  .app-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-repeat: repeat;
+  }
+
+  .app-background[data-team="A"] {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.72 0.17 250 / 7%), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.75 0.18 55 / 5%), transparent);
+  }
+
+  .app-background[data-team="B"] {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.75 0.18 55 / 7%), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.72 0.17 250 / 5%), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
