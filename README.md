@@ -84,8 +84,7 @@ Exemplo com pool de 7 mapas em BO5 (mínimo exigido para esse formato):
 
 ## Requisitos
 
-- Node.js `24` (versão fixada em [`.nvmrc`](.nvmrc) e usada no CI). Também testado localmente
-  em Node 26.
+- Node.js `26` (versão fixada em [`.nvmrc`](.nvmrc) e usada no CI).
 - npm (vem com o Node)
 
 ## Como rodar
