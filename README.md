@@ -189,4 +189,4 @@ Games.
 
 ## Licença
 
-A definir.
+Distribuído sob a licença [MIT](LICENSE). Os assets de Valorant pertencem à Riot Games e não estão cobertos por esta licença (veja o aviso legal acima).
